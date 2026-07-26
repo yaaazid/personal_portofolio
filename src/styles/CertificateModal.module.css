@@ -1,0 +1,60 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  height: 85vh;
+  background-color: #1a1818;
+  border: 1px solid rgba(244, 241, 234, 0.15);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.9rem 1.25rem;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.1);
+}
+
+.title {
+  font-family: var(--font-serif, serif);
+  font-size: 1rem;
+  color: #f4f1ea;
+  padding-right: 1rem;
+}
+
+.closeButton {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  color: rgba(244, 241, 234, 0.7);
+  cursor: pointer;
+  display: flex;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.closeButton:hover {
+  color: #f4f1ea;
+}
+
+.frame {
+  flex: 1;
+  width: 100%;
+  border: none;
+  background-color: #2a2828;
+}

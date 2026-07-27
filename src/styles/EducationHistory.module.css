@@ -1,0 +1,84 @@
+.section {
+  padding: 2rem 1.5rem 3rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .header {
+    text-align: left;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.5);
+}
+
+.title {
+  font-family: var(--font-serif, serif);
+  font-size: 1.75rem;
+  color: #f4f1ea;
+  margin-top: 0.5rem;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding-left: 1.5rem;
+  border-left: 1px solid rgba(244, 241, 234, 0.15);
+}
+
+.item {
+  position: relative;
+}
+
+.marker {
+  position: absolute;
+  left: -1.95rem;
+  top: 0.35rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 9999px;
+  background-color: #f4f1ea;
+}
+
+.period {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.5);
+}
+
+.institution {
+  font-family: var(--font-serif, serif);
+  font-size: 1.2rem;
+  color: #f4f1ea;
+  margin-top: 0.3rem;
+}
+
+.degree {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: rgba(244, 241, 234, 0.6);
+  margin-top: 0.15rem;
+}
+
+.description {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: rgba(244, 241, 234, 0.7);
+  margin-top: 0.5rem;
+  max-width: 55ch;
+}

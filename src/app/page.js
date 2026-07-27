@@ -7,6 +7,10 @@ import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import SelectedWorks from '@/components/SelectedWorks';
 import Certifications from '@/components/Certifications';
+import EducationHistory from '@/components/EducationHistory';
+import TechStackTable from '@/components/TechStackTable';
+import TechFlythrough from '@/components/TechFlythrough';
+
 
 export default function Page() {
   const [introDone, setIntroDone] = useState(false);
@@ -22,15 +26,18 @@ export default function Page() {
       {introDone && (
         <>
           <Navbar
-            name="Nama Kamu"
+            name="Yazid Denny Troya"
             avatarSrc="/images/subject-portrait.jpg"
-            githubUrl="https://github.com/username-kamu"
-            email="email-kamu@gmail.com"
+            githubUrl="https://github.com/yaaazid/portofolio"
+            email="yazid234g@gmail.com"
           />
-          <Header />
+          <Header city="Bekasi, ID" />
           <Hero />
           <SelectedWorks />
           <Certifications />
+          <EducationHistory />
+          <TechFlythrough />
+          <TechStackTable />
         </>
       )}
     </>

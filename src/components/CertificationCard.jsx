@@ -4,6 +4,7 @@ import { useRef, useState, useEffect } from 'react';
 import styles from '@/styles/CertificationCard.module.css';
 
 const RADIUS = 12;
+const DOT_COUNT = 3;
 
 function buildBorderPath(w, h, r) {
   return `M ${r} 0 L ${w - r} 0 Q ${w} 0 ${w} ${r} L ${w} ${h - r} Q ${w} ${h} ${w - r} ${h} L ${r} ${h} Q 0 ${h} 0 ${h - r} L 0 ${r} Q 0 0 ${r} 0 Z`;
@@ -26,7 +27,6 @@ export default function CertificationCard({ certificate, onClick }) {
     };
 
     measure();
-
     const observer = new ResizeObserver(measure);
     observer.observe(cardRef.current);
     return () => observer.disconnect();
@@ -47,9 +47,15 @@ export default function CertificationCard({ certificate, onClick }) {
           viewBox={`0 0 ${size.width} ${size.height}`}
         >
           <path pathLength="1" className={styles.borderPath} d={pathD} />
-          <path pathLength="1" className={styles.glowPath} d={pathD} />
-          <path pathLength="1" className={styles.glowPath} d={pathD} />
-          <path pathLength="1" className={styles.glowPath} d={pathD} />
+          {Array.from({ length: DOT_COUNT }).map((_, i) => (
+            <path
+              key={i}
+              pathLength="1"
+              className={styles.glowPath}
+              d={pathD}
+              style={{ animationDelay: `${-(i * (4.5 / DOT_COUNT))}s` }}
+            />
+          ))}
         </svg>
       )}
 

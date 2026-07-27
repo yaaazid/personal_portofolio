@@ -1,0 +1,54 @@
+.wrapper {
+  position: relative;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.centerText {
+  position: absolute;
+  z-index: 5;
+  max-width: 42rem;
+  text-align: center;
+  padding: 0 1.5rem;
+  font-family: var(--font-serif, serif);
+  font-size: 1.6rem;
+  line-height: 1.4;
+  color: #f4f1ea;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .centerText {
+    font-size: 2.2rem;
+  }
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono, monospace);
+  color: rgba(244, 241, 234, 0.7);
+  white-space: nowrap;
+  will-change: transform, opacity, filter;
+}
+
+.logoIcon {
+  flex-shrink: 0;
+}
+
+.logoLabel {
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}

@@ -13,11 +13,10 @@ export const works = [
     slug: 'escape-podcast',
     exhibit: 'Exhibit B',
     category: 'Media / Podcast',
-    title: 'Escape 2.0 Website',
+    title: 'Escape Podcast Website',
     description:
       'Podcast website built with React and Next.js, with custom SVG icon system and Figma-aligned design.',
     image: '/images/works/escape-podcast.jpg',
-    link: 'https://atescape.id',
     tech: ['Next.js', 'React', 'Tailwind CSS'],
   },
   {
@@ -176,3 +175,69 @@ export const techStack = [
 ];
 
 export const skillsMarquee = techStack.map((t) => t.substance);
+
+export const experiences = [
+  {
+    id: 'exp-1',
+    role: 'Backpacker & Cultural Exploration',
+    company: 'IDN Backpacker School',
+    period: '07/2025 — 04/2026',
+    location: '20 Countries · 10 Months',
+    description:
+      'Completed a group backpacking journey across 20 countries, including Malaysia, China, Egypt, Morocco, Netherlands, Belgium, Germany, Czech Republic, Austria, Slovakia, Hungary, Serbia, Bulgaria, Turkey, Saudi Arabia, Nepal, Thailand, Laos, Vietnam, Hong Kong, and Macau.',
+  },
+  {
+    id: 'exp-2',
+    role: 'International Exposure & Industry Visit',
+    company: 'Cedar Gate Technologies',
+    period: '01/2026',
+    location: 'Nepal',
+    description:
+      'Participated in an international company visit, gaining insights into global IT business operations and healthcare technology solutions.',
+  },
+  {
+    id: 'exp-3',
+    role: 'IT Trainer',
+    company: 'SMAN 8 Jakarta',
+    period: '05/2025',
+    location: '120+ students',
+    description:
+      'Led a 5-day intensive web development course, covering fundamental concepts and hands-on sessions on building responsive user interfaces.',
+  },
+  {
+    id: 'exp-4',
+    role: 'IT Trainer',
+    company: "Qurrota A'yun Boarding School",
+    period: '02/2025',
+    location: '80+ students',
+    description:
+      'Delivered a three-day intensive web development training, helping students build responsive web projects using HTML, CSS, and JavaScript.',
+  },
+  {
+    id: 'exp-5',
+    role: 'IT Trainer',
+    company: 'SMKN 10 Jakarta',
+    period: '02/2025',
+    location: '50+ students',
+    description:
+      'Conducted a two-day web development training, teaching essential principles and leading hands-on activities on building responsive UI.',
+  },
+  {
+    id: 'exp-6',
+    role: 'IT Trainer',
+    company: 'SMA Al Anwar Bina Mulya Tangerang',
+    period: '11/2024',
+    location: '40+ students',
+    description:
+      'Oversaw a three-day comprehensive web development training, introducing essential web technologies and responsive UI layouts.',
+  },
+  {
+    id: 'exp-7',
+    role: 'IT Trainer',
+    company: 'SMKN 26 Jakarta',
+    period: '09/2024',
+    location: '60+ students',
+    description:
+      'Facilitated a four-day intensive web development program, delivering core fundamentals and guiding practical UI sessions.',
+  },
+];

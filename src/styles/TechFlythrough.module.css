@@ -48,6 +48,51 @@
   flex-shrink: 0;
 }
 
+.icon3dWrap {
+  display: inline-flex;
+  flex-shrink: 0;
+  perspective: 300px;
+}
+
+.icon3d {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transform: rotateX(-20deg) rotateY(28deg);
+  animation: icon3dSpin 6s linear infinite;
+}
+
+.icon3dLayer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  color: rgba(244, 241, 234, 0.55);
+  backface-visibility: hidden;
+}
+
+.icon3dLayer:first-child {
+  color: #ff8f7a;
+  filter: drop-shadow(0 0 3px rgba(255, 143, 122, 0.35));
+}
+
+@keyframes icon3dSpin {
+  from {
+    transform: rotateX(-20deg) rotateY(0deg);
+  }
+  to {
+    transform: rotateX(-20deg) rotateY(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .icon3d {
+    animation: none;
+  }
+}
+
 .logoLabel {
   font-size: 1rem;
   letter-spacing: 0.02em;

@@ -9,8 +9,8 @@ import SelectedWorks from '@/components/SelectedWorks';
 import Certifications from '@/components/Certifications';
 import EducationHistory from '@/components/EducationHistory';
 import TechStackTable from '@/components/TechStackTable';
-import TechFlythrough from '@/components/TechFlythrough';
-
+import Experiences from '@/components/Experiences';
+import SkillsMarquee from '@/components/SkillsMarquee';
 
 export default function Page() {
   const [introDone, setIntroDone] = useState(false);
@@ -36,8 +36,9 @@ export default function Page() {
           <SelectedWorks />
           <Certifications />
           <EducationHistory />
-          <TechFlythrough />
           <TechStackTable />
+          <Experiences />
+          <SkillsMarquee />
         </>
       )}
     </>

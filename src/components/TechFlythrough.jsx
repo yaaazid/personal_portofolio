@@ -33,6 +33,30 @@ const ICONS = {
   flutter: SiFlutter,
 };
 
+const DEPTH_LAYERS = 6;
+
+function Icon3D({ Icon, size }) {
+  if (!Icon) return null;
+
+  return (
+    <span className={styles.icon3dWrap} style={{ width: size, height: size }}>
+      <span className={styles.icon3d}>
+        {Array.from({ length: DEPTH_LAYERS }).map((_, i) => (
+          <Icon
+            key={i}
+            aria-hidden={i > 0}
+            className={styles.icon3dLayer}
+            style={{
+              transform: `translateZ(${-i * 1.4}px)`,
+              opacity: i === 0 ? 1 : Math.max(0.15, 0.6 - i * 0.1),
+            }}
+          />
+        ))}
+      </span>
+    </span>
+  );
+}
+
 // Each entry gets a random-ish spread position and depth (0 = far/small, 1 = near/large)
 function buildLayout(items) {
   return items.map((item, i) => {
@@ -135,7 +159,7 @@ export default function TechFlythrough() {
               ref={(el) => (logoRefs.current[i] = el)}
               className={styles.logo}
             >
-              {Icon && <Icon size={22} className={styles.logoIcon} />}
+              {Icon && <Icon3D Icon={Icon} size={22} />}
               <span className={styles.logoLabel}>{item.substance}</span>
             </div>
           );

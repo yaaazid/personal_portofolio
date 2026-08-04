@@ -33,10 +33,53 @@
   border-bottom: 2px solid #f4f1ea;
 }
 
-.tableWrap {
-  overflow-x: auto;
-  border: 1px solid rgba(244, 241, 234, 0.15);
+@property --beam-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
+.beamBorder {
+  position: relative;
   border-radius: 0.5rem;
+  padding: 1.5px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.beamBorder::before {
+  content: '';
+  position: absolute;
+  inset: -120%;
+  background: conic-gradient(
+    from var(--beam-angle),
+    transparent 0deg 260deg,
+    #ff8f7a 300deg,
+    #f4f1ea 330deg,
+    transparent 360deg
+  );
+  animation: beamRotate 4.5s linear infinite;
+  z-index: 0;
+}
+
+@keyframes beamRotate {
+  to {
+    --beam-angle: 360deg;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .beamBorder::before {
+    animation: none;
+  }
+}
+
+.tableWrap {
+  position: relative;
+  z-index: 1;
+  overflow-x: auto;
+  background-color: var(--color-ink, #121010);
+  border-radius: calc(0.5rem - 1.5px);
 }
 
 .table {

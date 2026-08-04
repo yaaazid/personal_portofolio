@@ -1,0 +1,57 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(244, 241, 234, 0.1);
+}
+
+.topRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.role {
+  font-family: var(--font-serif, serif);
+  font-size: 1.25rem;
+  color: #f4f1ea;
+}
+
+.period {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  color: rgba(244, 241, 234, 0.5);
+  white-space: nowrap;
+}
+
+.metaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: rgba(244, 241, 234, 0.6);
+}
+
+.company {
+  color: rgba(244, 241, 234, 0.75);
+}
+
+.dot {
+  width: 3px;
+  height: 3px;
+  border-radius: 9999px;
+  background-color: rgba(244, 241, 234, 0.4);
+}
+
+.description {
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: rgba(244, 241, 234, 0.7);
+  margin-top: 0.4rem;
+  max-width: 65ch;
+}

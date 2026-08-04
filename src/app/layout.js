@@ -1,5 +1,4 @@
 import './globals.css';
-import StarfieldBackground from '@/components/StarfieldBackground';
 
 export const metadata = {
   title: 'Yazid Denny Troya — Web & Mobile Developer',
@@ -10,7 +9,6 @@ export default function RootLayout({ children }) {
   return (
     <html lang="id">
       <body className="relative bg-ink text-paper antialiased">
-        <StarfieldBackground />
         {children}
       </body>
     </html>

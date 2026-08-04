@@ -1,4 +1,4 @@
-.canvas {
+.canvasWrap {
   position: fixed;
   top: 0;
   left: 0;
@@ -6,5 +6,4 @@
   height: 100%;
   z-index: -1;
   background-color: #050505;
-  pointer-events: none;
 }

@@ -81,39 +81,41 @@ export default function TechStackTable() {
         <h2 className={styles.title}>The Lab Report</h2>
       </div>
 
-      <div className={styles.tableWrap}>
-        <table className={styles.table}>
-          <thead>
-            <tr>
-              <th>Substance</th>
-              <th>Code</th>
-              <th>Detected</th>
-              <th>Finding</th>
-            </tr>
-          </thead>
-          <tbody>
-            {techStack.map((row, i) => {
-              const Icon = ICONS[row.icon];
-              const badgeClass = styles[BADGE_CLASS[row.finding]] || styles.badgeComfortable;
+      <div className={styles.beamBorder}>
+        <div className={styles.tableWrap}>
+          <table className={styles.table}>
+            <thead>
+              <tr>
+                <th>Substance</th>
+                <th>Code</th>
+                <th>Detected</th>
+                <th>Finding</th>
+              </tr>
+            </thead>
+            <tbody>
+              {techStack.map((row, i) => {
+                const Icon = ICONS[row.icon];
+                const badgeClass = styles[BADGE_CLASS[row.finding]] || styles.badgeComfortable;
 
-              return (
-                <tr key={row.substance} ref={(el) => (rowRefs.current[i] = el)}>
-                  <td>
-                    <span className={styles.substanceCell}>
-                      {Icon && <Icon className={styles.icon} />}
-                      {row.substance}
-                    </span>
-                  </td>
-                  <td>{row.code}</td>
-                  <td className={styles.detectedCell}>{row.detected}</td>
-                  <td>
-                    <span className={badgeClass}>{row.finding}</span>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                return (
+                  <tr key={row.substance} ref={(el) => (rowRefs.current[i] = el)}>
+                    <td>
+                      <span className={styles.substanceCell}>
+                        {Icon && <Icon className={styles.icon} />}
+                        {row.substance}
+                      </span>
+                    </td>
+                    <td>{row.code}</td>
+                    <td className={styles.detectedCell}>{row.detected}</td>
+                    <td>
+                      <span className={badgeClass}>{row.finding}</span>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
       </div>
 
       <p className={styles.caption}>

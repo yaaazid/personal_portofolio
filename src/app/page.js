@@ -12,6 +12,8 @@ import TechStackTable from '@/components/TechStackTable';
 import Experiences from '@/components/Experiences';
 import SkillsMarquee from '@/components/SkillsMarquee';
 import BackpackerJourney from '@/components/BackpackerJourney';
+import SuccessCarousel from '@/components/SuccessCarousel';
+import VerticalPhotoScroll from '@/components/VerticalPhotoScroll';
 
 export default function Page() {
   const [introDone, setIntroDone] = useState(false);
@@ -41,6 +43,8 @@ export default function Page() {
           <Experiences />
           <SkillsMarquee />
           <BackpackerJourney />
+          <VerticalPhotoScroll /> 
+          <SuccessCarousel />
         </>
       )}
     </>

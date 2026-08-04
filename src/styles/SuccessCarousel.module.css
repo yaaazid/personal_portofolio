@@ -1,0 +1,121 @@
+.section {
+  padding: 2rem 1.5rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .header {
+    text-align: left;
+  }
+}
+
+.eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.5);
+}
+
+.title {
+  font-family: var(--font-serif, serif);
+  font-size: 1.75rem;
+  color: #f4f1ea;
+  margin-top: 0.5rem;
+}
+
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.counter {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: rgba(244, 241, 234, 0.5);
+}
+
+.navButtons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1px solid rgba(244, 241, 234, 0.25);
+  color: #f4f1ea;
+  background: none;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.navButton:hover {
+  border-color: rgba(244, 241, 234, 0.6);
+  background-color: rgba(244, 241, 234, 0.05);
+}
+
+.slide {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .slide {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.imageWrap {
+  aspect-ratio: 4 / 3;
+  border-radius: 0.6rem;
+  overflow: hidden;
+  border: 1px solid rgba(244, 241, 234, 0.12);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.slideTitle {
+  font-family: var(--font-serif, serif);
+  font-size: 1.6rem;
+  color: #f4f1ea;
+  margin-bottom: 0.75rem;
+}
+
+.slideDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(244, 241, 234, 0.7);
+  margin-bottom: 1.25rem;
+}
+
+.metaRow {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: rgba(244, 241, 234, 0.5);
+}
+
+.metaLabel {
+  color: rgba(244, 241, 234, 0.35);
+  margin-right: 0.4rem;
+}

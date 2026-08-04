@@ -11,6 +11,7 @@ import EducationHistory from '@/components/EducationHistory';
 import TechStackTable from '@/components/TechStackTable';
 import Experiences from '@/components/Experiences';
 import SkillsMarquee from '@/components/SkillsMarquee';
+import BackpackerJourney from '@/components/BackpackerJourney';
 
 export default function Page() {
   const [introDone, setIntroDone] = useState(false);
@@ -39,6 +40,7 @@ export default function Page() {
           <TechStackTable />
           <Experiences />
           <SkillsMarquee />
+          <BackpackerJourney />
         </>
       )}
     </>

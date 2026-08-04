@@ -176,6 +176,21 @@ export const techStack = [
 
 export const skillsMarquee = techStack.map((t) => t.substance);
 
+export const backpackerJourney = {
+  title: 'Backpacker to 20 Countries',
+  period: '07/2025 — 04/2026',
+  duration: '10 Months',
+  countryCount: 20,
+  description:
+    'Completed a group backpacking journey across 20 countries — a stretch of independent travel, cultural exposure, and problem-solving on the move, alongside IDN Backpacker School.',
+  countries: [
+    'Malaysia', 'China', 'Egypt', 'Morocco', 'Netherlands', 'Belgium',
+    'Germany', 'Czech Republic', 'Austria', 'Slovakia', 'Hungary', 'Serbia',
+    'Bulgaria', 'Turkey', 'Saudi Arabia', 'Nepal', 'Thailand', 'Laos',
+    'Vietnam', 'Hong Kong',
+  ],
+};
+
 export const experiences = [
   {
     id: 'exp-1',

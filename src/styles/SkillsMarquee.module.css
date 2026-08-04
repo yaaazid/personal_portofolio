@@ -56,9 +56,23 @@
   letter-spacing: 0.03em;
   color: rgba(244, 241, 234, 0.5);
   white-space: nowrap;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.35rem;
+  transition: color 0.25s ease, transform 0.25s ease, background-color 0.25s ease;
+}
+
+.item:hover {
+  color: var(--brand-color, #f4f1ea);
+  background-color: rgba(244, 241, 234, 0.06);
+  transform: translateY(-3px) scale(1.06);
 }
 
 .icon {
   flex-shrink: 0;
   font-size: 1.1rem;
+  transition: filter 0.25s ease;
+}
+
+.item:hover .icon {
+  filter: drop-shadow(0 0 6px var(--brand-color, rgba(244, 241, 234, 0.6)));
 }

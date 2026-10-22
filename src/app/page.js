@@ -44,7 +44,7 @@ export default function Page() {
           <SkillsMarquee />
           <BackpackerJourney />
           <VerticalPhotoScroll /> 
-          <SuccessCarousel />
+          {/* <SuccessCarousel /> */}
         </>
       )}
     </>

@@ -1,3 +1,11 @@
+export const profile = {
+  name: 'Yazid Denny Troya',
+  email: 'yazid234g@gmail.com',
+  github: 'https://github.com/yaaazid',
+  resume: '/cv-yazed.pdf',
+  city: 'Bekasi, ID',
+};
+
 export const works = [
   {
     slug: 'spkn-bpk',
@@ -26,7 +34,8 @@ export const works = [
     title: 'PT Umara Multi Bisnis',
     description:
       'Company profile website for a pet health distributor in Bandung, built with React + Tailwind and a clean component architecture.',
-    image: '/images/works/umara.jpg',
+    // TODO: tambahkan screenshot ke public/images/works/umara.jpg lalu isi path-nya di sini.
+    image: null,
     tech: ['React', 'Tailwind CSS'],
   },
   {
@@ -36,7 +45,8 @@ export const works = [
     title: 'Hadirin — Attendance App',
     description:
       'Face recognition + GPS attendance app built with Flutter, Firebase, GetX, and Google ML Kit.',
-    image: '/images/works/hadirin.jpg',
+    // TODO: tambahkan screenshot ke public/images/works/hadirin.jpg lalu isi path-nya di sini.
+    image: null,
     tech: ['Flutter', 'Firebase', 'GetX', 'ML Kit'],
   },
 ];
@@ -173,8 +183,6 @@ export const techStack = [
   { substance: 'NodeJS', icon: 'nodedotjs', code: 'NODE', detected: 'When needed', finding: 'Comfortable' },
   { substance: 'Dart Flutter', icon: 'flutter', code: 'FLTR', detected: 'Frequent', finding: 'Primary Tool' },
 ];
-
-export const skillsMarquee = techStack.map((t) => t.substance);
 
 export const backpackerJourney = {
   title: 'Backpacker to 20 Countries',

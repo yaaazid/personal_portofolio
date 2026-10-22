@@ -37,6 +37,35 @@
   padding-right: 1rem;
 }
 
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.openLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  color: rgba(244, 241, 234, 0.7);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.openLink:hover {
+  color: #f4f1ea;
+  text-decoration: underline;
+}
+
+.closeButton:focus-visible,
+.openLink:focus-visible {
+  outline: 2px solid #f4f1ea;
+  outline-offset: 2px;
+}
+
 .closeButton {
   flex-shrink: 0;
   background: none;

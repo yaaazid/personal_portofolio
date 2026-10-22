@@ -98,7 +98,12 @@ export default function TechStackTable() {
                 const badgeClass = styles[BADGE_CLASS[row.finding]] || styles.badgeComfortable;
 
                 return (
-                  <tr key={row.substance} ref={(el) => (rowRefs.current[i] = el)}>
+                  <tr
+                    key={row.substance}
+                    ref={(el) => {
+                      rowRefs.current[i] = el;
+                    }}
+                  >
                     <td>
                       <span className={styles.substanceCell}>
                         {Icon && <Icon className={styles.icon} />}

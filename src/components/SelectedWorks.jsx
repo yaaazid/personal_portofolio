@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
+import Link from 'next/link';
 import {
   SiLaravel,
   SiBootstrap,
@@ -41,18 +42,22 @@ export default function SelectedWorks() {
     });
   }, []);
 
+  useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
+
   const activeWork = works.find((w) => w.slug === hovered);
 
   return (
     <section id="work" className={styles.section} onMouseMove={handleMouseMove}>
       <div className={styles.header}>
-        <span className={styles.eyebrow}>Case Files 01 — 0{works.length}</span>
+        <span className={styles.eyebrow}>
+          Case Files 01 — {String(works.length).padStart(2, '0')}
+        </span>
         <h2 className={styles.title}>Selected Works</h2>
       </div>
 
       <div className={styles.list}>
         {works.map((work) => (
-          <a
+          <Link
             key={work.slug}
             href={`/case-files/${work.slug}`}
             className={styles.row}
@@ -86,7 +91,7 @@ export default function SelectedWorks() {
 
               <ArrowUpRight size={18} className={styles.arrow} />
             </span>
-          </a>
+          </Link>
         ))}
       </div>
 
@@ -100,7 +105,11 @@ export default function SelectedWorks() {
       >
         {activeWork && (
           <>
-            <img src={activeWork.image} alt={activeWork.title} className={styles.previewImage} />
+            {activeWork.image ? (
+              <img src={activeWork.image} alt={activeWork.title} className={styles.previewImage} />
+            ) : (
+              <span className={styles.previewPlaceholder}>{activeWork.title}</span>
+            )}
             <span className={styles.previewBadge}>View</span>
           </>
         )}

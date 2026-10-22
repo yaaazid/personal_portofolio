@@ -43,6 +43,9 @@ export default function TechStackTable() {
   const rowRefs = useRef([]);
 
   useEffect(() => {
+    // Hormati pengaturan "reduce motion": biarkan semua baris langsung tampil.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
     const ctx = gsap.context(() => {
       const rows = rowRefs.current.filter(Boolean);
 

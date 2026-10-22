@@ -1,10 +1,9 @@
 import { Mail, ArrowUpRight } from 'lucide-react';
 import { profile } from '@/lib/constants';
+import CurrentYear from '@/components/CurrentYear';
 import styles from '@/styles/Footer.module.css';
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
   return (
     <footer id="contact" className={styles.footer}>
       <div className={styles.inner}>
@@ -35,7 +34,7 @@ export default function Footer() {
       </div>
 
       <p className={styles.copy}>
-        © {year} {profile.name}. All rights reserved.
+        © <CurrentYear /> {profile.name}. All rights reserved.
       </p>
     </footer>
   );

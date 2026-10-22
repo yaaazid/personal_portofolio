@@ -43,6 +43,12 @@ export default function BackpackerJourney() {
   const countUpTarget = useRef({ value: 0 });
 
   useEffect(() => {
+    // Hormati pengaturan "reduce motion": tampilkan angka akhir tanpa animasi.
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      if (statCountRef.current) statCountRef.current.textContent = countryCount;
+      return;
+    }
+
     const ctx = gsap.context(() => {
       const statBlocks = statBlockRefs.current.filter(Boolean);
       const tags = tagRefs.current.filter(Boolean);

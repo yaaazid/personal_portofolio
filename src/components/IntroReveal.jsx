@@ -1,20 +1,34 @@
 'use client';
 
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect, useSyncExternalStore } from 'react';
 import styles from '@/styles/IntroReveal.module.css';
+
+const REDUCED_MOTION_QUERY = '(prefers-reduced-motion: reduce)';
+
+function subscribeReducedMotion(callback) {
+  const mq = window.matchMedia(REDUCED_MOTION_QUERY);
+  mq.addEventListener('change', callback);
+  return () => mq.removeEventListener('change', callback);
+}
+
+const getReducedMotion = () => window.matchMedia(REDUCED_MOTION_QUERY).matches;
+const getServerReducedMotion = () => false;
 
 export default function IntroReveal({ onComplete, subjectSrc = '/images/subject-portrait.jpg' }) {
   const [pos, setPos] = useState({ x: 50, y: 50 });
   const [found, setFound] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const reducedMotion = useSyncExternalStore(
+    subscribeReducedMotion,
+    getReducedMotion,
+    getServerReducedMotion
+  );
   const containerRef = useRef(null);
+  const timeoutRef = useRef(null);
 
-  useEffect(() => {
-    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(mq.matches);
-  }, []);
+  useEffect(() => () => clearTimeout(timeoutRef.current), []);
 
   const updatePos = useCallback((clientX, clientY) => {
+    if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const x = ((clientX - rect.left) / rect.width) * 100;
     const y = ((clientY - rect.top) / rect.height) * 100;
@@ -30,7 +44,7 @@ export default function IntroReveal({ onComplete, subjectSrc = '/images/subject-
   const handleFound = () => {
     if (found) return;
     setFound(true);
-    setTimeout(() => onComplete?.(), 900);
+    timeoutRef.current = setTimeout(() => onComplete?.(), 900);
   };
 
   return (
@@ -73,7 +87,7 @@ export default function IntroReveal({ onComplete, subjectSrc = '/images/subject-
       {/* copy */}
       <div className={styles.copyWrap}>
         <span className={styles.eyebrow}>Case No. 000 — Subject unconfirmed</span>
-        <h1 className={styles.title}>Take the glass — find the subject</h1>
+        <p className={styles.title}>Take the glass — find the subject</p>
       </div>
 
       <button onClick={handleFound} className={styles.skipButton}>

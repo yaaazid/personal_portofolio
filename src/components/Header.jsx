@@ -1,21 +1,22 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useSyncExternalStore } from 'react';
 import styles from '@/styles/Header.module.css';
 
-export default function Header({ city = 'Cikarang, ID' }) {
-  const [dateStr, setDateStr] = useState('');
+const subscribe = () => () => {};
 
-  useEffect(() => {
-    const now = new Date();
-    const formatted = now.toLocaleDateString('id-ID', {
-      weekday: 'long',
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric',
-    });
-    setDateStr(formatted);
-  }, []);
+// Tanggal dihitung di browser (bukan saat build), jadi selalu sesuai hari pengunjung.
+const getDate = () =>
+  new Date().toLocaleDateString('id-ID', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric',
+  });
+const getServerDate = () => '';
+
+export default function Header({ city = 'Cikarang, ID' }) {
+  const dateStr = useSyncExternalStore(subscribe, getDate, getServerDate);
 
   return (
     <div className={styles.header}>

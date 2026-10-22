@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { Menu, X, Mail, ArrowUpRight } from 'lucide-react';
+import { profile } from '@/lib/constants';
 import styles from '@/styles/Navbar.module.css';
 
 const NAV_LINKS = [
@@ -30,24 +31,26 @@ function GithubIcon({ size = 18, color = 'currentColor' }) {
 }
 
 export default function Navbar({
-  name = 'Nama Kamu',
+  name = profile.name,
   avatarSrc = '/images/subject-portrait.jpg',
-  githubUrl = 'https://github.com/username',
-  email = 'email@kamu.com',
+  githubUrl = profile.github,
+  email = profile.email,
+  resumeUrl = profile.resume,
 }) {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <header className={`${styles.nav} ${scrolled ? styles.navScrolled : ''}`}>
       <a href="#top" className={styles.profile}>
-        <img src={avatarSrc} alt={name} className={styles.avatar} />
+        <img src={avatarSrc} alt="" className={styles.avatar} />
         <span className={styles.name}>{name}.</span>
       </a>
 
@@ -58,7 +61,7 @@ export default function Navbar({
           </a>
         ))}
 
-        <a href="/cv-nama-kamu.pdf" download className={styles.link}>
+        <a href={resumeUrl} download className={styles.link}>
           Resume <ArrowUpRight size={13} style={{ display: 'inline' }} />
         </a>
       </nav>
@@ -83,6 +86,7 @@ export default function Navbar({
         className={styles.menuButton}
         onClick={() => setMenuOpen((v) => !v)}
         aria-label={menuOpen ? 'Tutup menu' : 'Buka menu'}
+        aria-expanded={menuOpen}
       >
         {menuOpen ? <X size={22} /> : <Menu size={22} />}
       </button>

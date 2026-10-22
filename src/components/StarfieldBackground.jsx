@@ -4,6 +4,7 @@ import { useRef, useEffect, useMemo } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { createRng } from '@/lib/random';
 import styles from '@/styles/StarfieldBackground.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -12,11 +13,12 @@ function Stars({ count = 2400, spread = 60 }) {
   const pointsRef = useRef();
 
   const positions = useMemo(() => {
+    const rand = createRng(2024);
     const arr = new Float32Array(count * 3);
     for (let i = 0; i < count; i++) {
-      arr[i * 3] = (Math.random() - 0.5) * spread * 2;
-      arr[i * 3 + 1] = (Math.random() - 0.5) * spread * 2;
-      arr[i * 3 + 2] = (Math.random() - 0.5) * spread * 2;
+      arr[i * 3] = (rand() - 0.5) * spread * 2;
+      arr[i * 3 + 1] = (rand() - 0.5) * spread * 2;
+      arr[i * 3 + 2] = (rand() - 0.5) * spread * 2;
     }
     return arr;
   }, [count, spread]);

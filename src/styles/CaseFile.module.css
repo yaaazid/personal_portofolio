@@ -1,0 +1,130 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 4rem;
+}
+
+.back,
+.next {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  color: rgba(244, 241, 234, 0.7);
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.back:hover,
+.next:hover {
+  color: #f4f1ea;
+  text-decoration: underline;
+}
+
+.back:focus-visible,
+.next:focus-visible {
+  outline: 2px solid #f4f1ea;
+  outline-offset: 3px;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.eyebrow {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.5);
+}
+
+.title {
+  font-family: var(--font-serif, serif);
+  font-size: 2rem;
+  line-height: 1.15;
+  color: #f4f1ea;
+}
+
+@media (min-width: 768px) {
+  .title {
+    font-size: 2.75rem;
+  }
+}
+
+.imageWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(244, 241, 234, 0.12);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background-color: rgba(244, 241, 234, 0.04);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.placeholder {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.4);
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(244, 241, 234, 0.78);
+  max-width: 65ch;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(244, 241, 234, 0.12);
+}
+
+.stackTitle {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(244, 241, 234, 0.5);
+}
+
+.techRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.techTag {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.75rem;
+  border: 1px solid rgba(244, 241, 234, 0.25);
+  color: rgba(244, 241, 234, 0.75);
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.25rem;
+}
+
+.next {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #f4f1ea;
+}

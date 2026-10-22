@@ -57,6 +57,7 @@ export default function SkillsMarquee() {
           return (
             <span
               key={`${item.substance}-${i}`}
+              aria-hidden={i >= techStack.length ? 'true' : undefined}
               className={styles.item}
               style={{ '--brand-color': color }}
             >

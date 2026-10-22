@@ -115,7 +115,9 @@ export default function BackpackerJourney() {
         <div className={styles.statsCol}>
           <div
             className={styles.statBlock}
-            ref={(el) => (statBlockRefs.current[0] = el)}
+            ref={(el) => {
+              statBlockRefs.current[0] = el;
+            }}
           >
             <span className={styles.statNumber}>
               <span ref={statCountRef}>0</span>
@@ -124,7 +126,9 @@ export default function BackpackerJourney() {
           </div>
           <div
             className={styles.statBlock}
-            ref={(el) => (statBlockRefs.current[1] = el)}
+            ref={(el) => {
+              statBlockRefs.current[1] = el;
+            }}
           >
             <span className={styles.statNumber}>{duration}</span>
             <span className={styles.statLabel}>On the Road</span>
@@ -138,7 +142,9 @@ export default function BackpackerJourney() {
             {countries.map((country, i) => (
               <span
                 key={country}
-                ref={(el) => (tagRefs.current[i] = el)}
+                ref={(el) => {
+                  tagRefs.current[i] = el;
+                }}
                 className={styles.countryTag}
               >
                 <span className={styles.flag}>{COUNTRY_FLAGS[country]}</span>

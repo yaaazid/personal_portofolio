@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
@@ -16,6 +16,7 @@ import {
   SiFlutter,
 } from 'react-icons/si';
 import { techStack } from '@/lib/constants';
+import { createRng } from '@/lib/random';
 import styles from '@/styles/TechFlythrough.module.css';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -59,14 +60,15 @@ function Icon3D({ Icon, size }) {
 
 // Each entry gets a random-ish spread position and depth (0 = far/small, 1 = near/large)
 function buildLayout(items) {
+  const rand = createRng(7);
   return items.map((item, i) => {
-    const angle = (i / items.length) * Math.PI * 2 + Math.random() * 0.6;
-    const radius = 30 + Math.random() * 45;
+    const angle = (i / items.length) * Math.PI * 2 + rand() * 0.6;
+    const radius = 30 + rand() * 45;
     return {
       ...item,
       xPct: Math.cos(angle) * radius,
       yPct: Math.sin(angle) * radius * 0.6,
-      depth: 0.5 + Math.random() * 0.6,
+      depth: 0.5 + rand() * 0.6,
     };
   });
 }
@@ -78,7 +80,7 @@ const TURN_DURATION = 0.8; // how long each logo's fly-in animation takes, in th
 export default function TechFlythrough() {
   const wrapperRef = useRef(null);
   const logoRefs = useRef([]);
-  const layout = useRef(buildLayout(techStack)).current;
+  const [layout] = useState(() => buildLayout(techStack));
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -156,7 +158,9 @@ export default function TechFlythrough() {
           return (
             <div
               key={item.substance}
-              ref={(el) => (logoRefs.current[i] = el)}
+              ref={(el) => {
+                logoRefs.current[i] = el;
+              }}
               className={styles.logo}
             >
               {Icon && <Icon3D Icon={Icon} size={22} />}

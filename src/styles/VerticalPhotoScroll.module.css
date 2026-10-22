@@ -84,8 +84,6 @@
 /* Right column: drifts upward -- reads as clockwise. */
 .trackUp {
   animation: scrollUp 26s linear infinite;
-  /* Start already offset by one loop so it appears to move from the start. */
-  transform: translateY(-50%);
 }
 
 .wrap:hover .trackDown,
@@ -102,12 +100,13 @@
   }
 }
 
+/* Track berisi dua salinan item, jadi loop mulus = geser 0 → -50%. */
 @keyframes scrollUp {
   from {
-    transform: translateY(-50%);
+    transform: translateY(0);
   }
   to {
-    transform: translateY(-100%);
+    transform: translateY(-50%);
   }
 }
 
